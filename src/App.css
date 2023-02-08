@@ -1,0 +1,138 @@
+/* =============== Обнуление стилей ============== */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #232832;
+}
+
+input {
+  padding: 10px;
+  width: 280px;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0px 20px 2px #25b3c9;
+}
+
+.enter {
+  background-color: #1d8c9d;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+}
+
+.enter:active {
+  transform: translateY(3px);
+  box-shadow: 0 4px 2px #25b3c9;
+}
+
+.todo__item li {
+  cursor: move;
+  width: 200px;
+  color: #000;
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.delete {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: none;
+  padding: 2px 6px;
+}
+.delete:hover {
+  color: #bb0707;
+  border: 1px solid #a1a1a1;
+  background-color: #f5f5f5;
+}
