@@ -5,13 +5,18 @@ import Draggable from "react-draggable";
 import { FaClipboardList } from "react-icons/fa";
 import { TbTools } from "react-icons/tb";
 import { MdTaskAlt } from "react-icons/md";
-
 import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const [item, setItem] = useState("");
+  const [time, setTime] = useState(getTime());
+  const useTime = useEffect(() => {
+    setInterval(() => {
+      setTime(getTime());
+    }, 1000);
+  }, []);
 
+  const [item, setItem] = useState("");
   const [localItem, setLocalItem] = useState(
     JSON.parse(localStorage.getItem("elems")) || []
   );
@@ -20,6 +25,7 @@ function App() {
     localStorage.setItem("elems", JSON.stringify(localItem));
   }, [localItem]);
 
+  // добавление таска. присваивание ему цвета,id, позиции, вывод таска на страницу  ===========
   const newItem = () => {
     if (item.trim() !== "") {
       const newElem = {
@@ -41,16 +47,19 @@ function App() {
     }
   };
 
+  // удаление задачи ===========
   const deleteNode = (id) => {
     setLocalItem(localItem.filter((el) => el.id !== id));
   };
 
+  // обновление позиции после перетаскивания ===========
   const updatePos = (data, index) => {
     let newArray = [...localItem];
     newArray[index].defaultPos = { x: data.x, y: data.y };
     setLocalItem(newArray);
   };
 
+  // добавление через кнопку Enter ===========
   const keyPress = (el) => {
     const code = el.keyCode || el.which;
     if (code === 13) {
@@ -58,10 +67,20 @@ function App() {
     }
   };
 
+  // часы ===========
+  function getTime() {
+    let time = new Date().toLocaleTimeString();
+    return time;
+  }
+
   return (
     <div className="App">
       <div className="wrapper">
         <div className="container">
+          <div className="container__radio"></div>
+          <div className="container__time">
+            <h3>{time}</h3>
+          </div>
           <div className="todo__form">
             <input
               value={item}
