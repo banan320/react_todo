@@ -19,13 +19,13 @@ function App() {
   });
 
   const [item, setItem] = useState("");
-  // получение данных из localStorage
 
+  // получение данных из localStorage
   const [localItem, setLocalItem] = useState(
     JSON.parse(localStorage.getItem("elems")) || []
   );
 
-  // запись данных в localStorage
+  //после обновления элементов в item, запускается запись данных в localStorage
   useEffect(() => {
     localStorage.setItem("elems", JSON.stringify(localItem));
   }, [localItem]);
