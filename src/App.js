@@ -10,17 +10,22 @@ import "./App.css";
 
 function App() {
   const [time, setTime] = useState(getTime());
-  const useTime = useEffect(() => {
+
+  // обновление времени каждую секунду
+  useEffect(() => {
     setInterval(() => {
       setTime(getTime());
     }, 1000);
-  }, []);
+  });
 
   const [item, setItem] = useState("");
+  // получение данных из localStorage
+
   const [localItem, setLocalItem] = useState(
     JSON.parse(localStorage.getItem("elems")) || []
   );
 
+  // запись данных в localStorage
   useEffect(() => {
     localStorage.setItem("elems", JSON.stringify(localItem));
   }, [localItem]);
