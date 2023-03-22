@@ -92,7 +92,7 @@ function App() {
               type="text"
               placeholder="Добавить задачу..."
               onChange={(e) => setItem(e.target.value)}
-              onKeyPress={(e) => keyPress(e)}
+              onKeyDown={(e) => keyPress(e)}
             />
             <button className="enter" type="button" onClick={newItem}>
               Добавить
